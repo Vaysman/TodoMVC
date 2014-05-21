@@ -13,6 +13,14 @@
     JSTL URL: ${url}
     <br>
     Message: ${message}
+
+    <div>
+        <ul>
+            <c:forEach items="${tasks}" var="task">
+                <li>${task.title}, <strong>${task.id}</strong></li>
+            </c:forEach>
+        </ul>
+    </div>
 </body>
 
 </html>
