@@ -21,6 +21,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- Package as an executable jar -->
@@ -32,6 +36,8 @@
             </plugin>
         </plugins>
     </build>
+
+
 
     <!-- Add Spring repoistories -->
     <!-- (you don't need this if you are using a .RELEASE version) -->
