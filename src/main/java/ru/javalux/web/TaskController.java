@@ -1,35 +1,37 @@
 package ru.javalux.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import ru.javalux.domain.Task;
 import ru.javalux.service.TaskService;
 
-import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/tasks")
 public class TaskController {
-    @Value("${application.message:Hello World}")
-    private String message = "Hello, World!";
-
     @Autowired
     private TaskService taskService;
 
-    @RequestMapping(value = "tasks", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String showAllTask(ModelMap model) {
         List<Task> tasks = this.taskService.findAll();
         model.put("tasks", tasks);
         return "index";
     }
-    @RequestMapping(value = "tasks/{id}", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String getNewForm(ModelMap model) {
+        List<Task> tasks = this.taskService.findAll();
+        model.put("tasks", tasks);
+        return "index";
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String showTask(@PathVariable Long id, ModelMap model) {
         Task task = this.taskService.find(id);
         model.put("task", task);
