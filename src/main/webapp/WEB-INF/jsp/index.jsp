@@ -6,13 +6,13 @@
 <html lang="en">
 
 <body>
-<spring:url value="/tasks/" var="showTask" />
+<spring:url value="/tasks" var="showTask" />
 <h1>Tasks list</h1>
 <div>
     <ul>
         <c:forEach items="${tasks}" var="task">
             <li>
-                <a href="${showTask}${task.id}">${task.title}</a>
+                <a href="${showTask}/${task.id}">${task.title}</a>
             </li>
         </c:forEach>
     </ul>
