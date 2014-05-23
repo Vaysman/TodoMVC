@@ -9,6 +9,8 @@ public interface TaskService {
     List<Task> findAll();
 
     Task find(Long id);
+
+    void save(Task task);
 }
 
 
