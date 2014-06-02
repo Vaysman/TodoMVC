@@ -17,15 +17,15 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String showAllTask(ModelMap model) {
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public String getNewForm(ModelMap model) {
         List<Task> tasks = this.taskService.findAll();
         model.put("tasks", tasks);
         return "index";
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String getNewForm(ModelMap model) {
+    @RequestMapping(method = RequestMethod.GET)
+    public String showAllTask(ModelMap model) {
         List<Task> tasks = this.taskService.findAll();
         model.put("tasks", tasks);
         return "index";

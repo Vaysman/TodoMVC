@@ -33,11 +33,11 @@ public class Task implements Serializable {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
     public String getDescription() {
         return description;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }

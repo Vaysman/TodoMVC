@@ -7,7 +7,6 @@ import ru.javalux.domain.Task;
 
 import java.util.List;
 
-
 @Component("taskService")
 @Transactional
 public class TaskServiceImpl implements TaskService {
@@ -19,17 +18,17 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public List<Task> findAll() {
-        return (List<Task>) this.taskRepository.findAll();
-    }
-
-    @Override
     public Task find(Long id) {
         return this.taskRepository.findOne(id);
     }
 
     @Override
+    public List<Task> findAll() {
+        return (List<Task>) this.taskRepository.findAll();
+    }
+
+    @Override
     public void save(Task task) {
-        return this.taskRepository.save(task);
+        this.taskRepository.save(task);
     }
 }

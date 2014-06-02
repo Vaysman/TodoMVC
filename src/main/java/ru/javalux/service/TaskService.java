@@ -6,9 +6,9 @@ import java.util.List;
 
 
 public interface TaskService {
-    List<Task> findAll();
-
     Task find(Long id);
+
+    List<Task> findAll();
 
     void save(Task task);
 }
